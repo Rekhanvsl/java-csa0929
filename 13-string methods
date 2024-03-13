@@ -1,0 +1,52 @@
+public class StringMethodsAndConstructorsDemo {
+    public static void main(String[] args) {
+        // String Constructors
+        String str1 = "Hello, World!"; // Using string literal
+        String str2 = new String(); // Empty string
+        char[] charArray = {'H', 'e', 'l', 'l', 'o'};
+        String str3 = new String(charArray); // Using character array
+        byte[] byteArray = {72, 101, 108, 108, 111};
+        String str4 = new String(byteArray); // Using byte array
+        
+        System.out.println("String Constructors:");
+        System.out.println("str1: " + str1);
+        System.out.println("str2: " + str2);
+        System.out.println("str3: " + str3);
+        System.out.println("str4: " + str4);
+        
+        // String Methods
+        System.out.println("\nString Methods:");
+        String example = "Hello, Java!";
+        
+        // Length
+        System.out.println("Length: " + example.length());
+        
+        // Concatenation
+        String concatString = example.concat(" How are you?");
+        System.out.println("Concatenation: " + concatString);
+        
+        // Substring
+        String subString = example.substring(7);
+        System.out.println("Substring: " + subString);
+        
+        // Character extraction
+        char charAtIndex = example.charAt(4);
+        System.out.println("Character at index 4: " + charAtIndex);
+        
+        // Index of a substring
+        int indexOfSubstring = example.indexOf("Java");
+        System.out.println("Index of 'Java': " + indexOfSubstring);
+        
+        // Upper case
+        String upperCaseString = example.toUpperCase();
+        System.out.println("Uppercase: " + upperCaseString);
+        
+        // Lower case
+        String lowerCaseString = example.toLowerCase();
+        System.out.println("Lowercase: " + lowerCaseString);
+        
+        // Replace
+        String replacedString = example.replace('o', '0');
+        System.out.println("Replace 'o' with '0': " + replacedString);
+    }
+}

@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+        int path1Length = 100;
+        int path2Length = 90;
+        int path3Length = 120;
+        switch (findShortestPath(path1Length, path2Length, path3Length)) {
+            case 1:
+                System.out.println("Path 1 is the shortest path first.");
+                break;
+            case 2:
+                System.out.println("Path 2 is the shortest path first.");
+                break;
+            case 3:
+                System.out.println("Path 3 is the shortest path first.");
+                break;
+            default:
+                System.out.println("All paths are of equal length.");
+        }
+    }
+    public static int findShortestPath(int path1, int path2, int path3) {
+        if (path1 < path2 && path1 < path3) {
+            return 1;
+        } else if (path2 < path1 && path2 < path3) {
+            return 2;
+        } else if (path3 < path1 && path3 < path2) {
+            return 3;
+        } else {
+            return 0;
+        }
+    }
+}

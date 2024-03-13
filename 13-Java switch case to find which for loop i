@@ -1,0 +1,48 @@
+import java.util.Random;
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(5) + 1;
+        int guess = random.nextInt(5) + 1;
+        switch (guess) {
+            case 1:
+                if (guess == randomNumber) {
+                    System.out.println("Congratulations! Your guess is correct: " + guess);
+                } else {
+                    System.out.println("Sorry, your guess is incorrect: " + guess);
+                }
+                break;
+            case 2:
+                if (guess == randomNumber) {
+                    System.out.println("Congratulations! Your guess is correct: " + guess);
+                } else {
+                    System.out.println("Sorry, your guess is incorrect: " + guess);
+                }
+                break;
+            case 3:
+                if (guess == randomNumber) {
+                    System.out.println("Congratulations! Your guess is correct: " + guess);
+                } else {
+                    System.out.println("Sorry, your guess is incorrect: " + guess);
+                }
+                break;
+            case 4:
+                if (guess == randomNumber) {
+                    System.out.println("Congratulations! Your guess is correct: " + guess);
+                } else {
+                    System.out.println("Sorry, your guess is incorrect: " + guess);
+                }
+                break;
+            case 5:
+                if (guess == randomNumber) {
+                    System.out.println("Congratulations! Your guess is correct: " + guess);
+                } else {
+                    System.out.println("Sorry, your guess is incorrect: " + guess);
+                }
+                break;
+            default:
+                System.out.println("Invalid guess");
+        }
+        System.out.println("The random number was: " + randomNumber);
+    }
+}

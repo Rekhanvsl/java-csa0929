@@ -1,0 +1,42 @@
+public class DataTypeConversionDemo {
+    public static void main(String[] args) {
+        // Implicit conversion (widening)
+        int intNum = 100;
+        long longNum = intNum; // int implicitly converted to long
+        float floatNum = longNum; // long implicitly converted to float
+        double doubleNum = floatNum; // float implicitly converted to double
+        
+        System.out.println("Implicit Conversion (Widening):");
+        System.out.println("intNum: " + intNum);
+        System.out.println("longNum: " + longNum);
+        System.out.println("floatNum: " + floatNum);
+        System.out.println("doubleNum: " + doubleNum);
+        
+        // Explicit conversion (narrowing)
+        doubleNum = 123456789.987654321;
+        floatNum = (float) doubleNum; // double explicitly converted to float
+        longNum = (long) floatNum; // float explicitly converted to long
+        intNum = (int) longNum; // long explicitly converted to int
+        
+        System.out.println("\nExplicit Conversion (Narrowing):");
+        System.out.println("doubleNum: " + doubleNum);
+        System.out.println("floatNum: " + floatNum);
+        System.out.println("longNum: " + longNum);
+        System.out.println("intNum: " + intNum);
+        
+        // Overflow and underflow scenarios
+        int maxValue = Integer.MAX_VALUE;
+        int minValue = Integer.MIN_VALUE;
+        System.out.println("\nOverflow and Underflow Scenarios:");
+        System.out.println("Max int value: " + maxValue);
+        System.out.println("Min int value: " + minValue);
+        
+        // Overflow
+        int overflowValue = maxValue + 1;
+        System.out.println("Overflow value: " + overflowValue); // Notice it wraps around to the minimum value
+        
+        // Underflow
+        int underflowValue = minValue - 1;
+        System.out.println("Underflow value: " + underflowValue); // Notice it wraps around to the maximum value
+    }
+}

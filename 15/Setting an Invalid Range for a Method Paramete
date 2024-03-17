@@ -1,0 +1,71 @@
+public class IllegalArgumentExceptionHandling {
+
+    public static void main(String[] args) {
+        try {
+            // a) Negative Argument in the method requiring non-negative values
+            int radius = -5;
+            double area = calculateCircleArea(radius);
+            System.out.println("Area of the circle: " + area);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // b) Invalid Enum Constant Passed to a Method
+            String direction = "North";
+            move(direction);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // c) Setting an Invalid Range for a Method Parameter
+            int age = 150;
+            validateAge(age);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // d) Empty or Null String Argument in a Method Requiring
+            String username = null;
+            validateUsername(username);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // Method to calculate area of a circle
+    public static double calculateCircleArea(int radius) {
+        if (radius < 0) {
+            throw new IllegalArgumentException("Radius cannot be negative");
+        }
+        return Math.PI * radius * radius;
+    }
+
+    // Method to move in a certain direction
+    public static void move(String direction) {
+        if (!(direction.equals("North") || direction.equals("South") ||
+                direction.equals("East") || direction.equals("West"))) {
+            throw new IllegalArgumentException("Invalid direction");
+        }
+        // Implementation of movement
+        System.out.println("Moving " + direction);
+    }
+
+    // Method to validate age within a reasonable range
+    public static void validateAge(int age) {
+        if (age < 0 || age > 120) {
+            throw new IllegalArgumentException("Age must be between 0 and 120");
+        }
+        // Further processing
+    }
+
+    // Method to validate non-null and non-empty username
+    public static void validateUsername(String username) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
+        // Further processing
+    }
+}

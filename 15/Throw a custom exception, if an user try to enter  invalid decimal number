@@ -1,0 +1,32 @@
+class InvalidDecimalNumberException extends Exception {
+    public InvalidDecimalNumberException(String message) {
+        super(message);
+    }
+}
+
+public class DecimalNumberValidator {
+    public static void main(String[] args) {
+        try {
+            String userInput = getUserInput();
+            validateDecimalNumber(userInput);
+            System.out.println("User input: " + userInput);
+        } catch (InvalidDecimalNumberException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public static String getUserInput() {
+        // For demonstration, let's simulate user input here
+        return "abc"; // Change this value to test invalid decimal number scenario
+    }
+
+    public static void validateDecimalNumber(String input) throws InvalidDecimalNumberException {
+        try {
+            // Attempt to parse the input as a decimal number
+            Double.parseDouble(input);
+        } catch (NumberFormatException e) {
+            // If parsing fails, throw the custom exception
+            throw new InvalidDecimalNumberException("Invalid decimal number: " + input);
+        }
+    }
+}

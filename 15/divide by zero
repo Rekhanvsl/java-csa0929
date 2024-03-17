@@ -1,0 +1,62 @@
+public class ArithmeticExceptionHandling {
+
+    public static void main(String[] args) {
+        try {
+            // a) Divided by Zero
+            int result = divideByZero(10, 0);
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // b) Logarithm of negative or Zero
+            double logResult = calculateLogarithm(-10);
+            System.out.println("Logarithm result: " + logResult);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // c) Tan 90 Degree
+            double tanResult = calculateTan(90);
+            System.out.println("Tan result: " + tanResult);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            // d) Zero power Zero
+            double zeroPowerZeroResult = calculateZeroPowerZero();
+            System.out.println("Zero power Zero result: " + zeroPowerZeroResult);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    // Method to handle division by zero
+    public static int divideByZero(int dividend, int divisor) {
+        return dividend / divisor;
+    }
+
+    // Method to handle logarithm of negative or zero
+    public static double calculateLogarithm(double number) {
+        if (number <= 0) {
+            throw new ArithmeticException("Logarithm of negative or zero is undefined");
+        }
+        return Math.log(number);
+    }
+
+    // Method to handle tan of 90 degrees
+    public static double calculateTan(double angle) {
+        if (angle % 90 == 0 && (angle / 90) % 2 != 0) {
+            throw new ArithmeticException("Tan 90 degrees is undefined");
+        }
+        return Math.tan(Math.toRadians(angle));
+    }
+
+    // Method to handle zero power zero
+    public static double calculateZeroPowerZero() {
+        return Math.pow(0, 0);
+    }
+}

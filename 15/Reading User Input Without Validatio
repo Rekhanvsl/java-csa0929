@@ -1,0 +1,48 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class NumberFormatExceptionHandling {
+
+    public static void main(String[] args) {
+        try {
+            // a) Parsing a Non-Numeric String.
+            String nonNumericString = "abc";
+            int parsedValue = Integer.parseInt(nonNumericString);
+            System.out.println("Parsed value: " + parsedValue);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // b) Reading User Input Without Validation.
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        String userInput = scanner.nextLine();
+        try {
+            int intValue = Integer.parseInt(userInput);
+            System.out.println("Parsed integer value: " + intValue);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // c) Formatting Issues in “Decimal Format”.
+        try {
+            DecimalFormat decimalFormat = new DecimalFormat("#.##");
+            double formattedNumber = decimalFormat.parse("1234.567").doubleValue();
+            System.out.println("Formatted number: " + formattedNumber);
+        } catch (ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // d) Incorrectly using localized decimal separator.
+        try {
+            NumberFormat numberFormat = NumberFormat.getInstance(); // Get default number format
+            Number parsedNumber = numberFormat.parse("1,234.567"); // Try parsing with comma as decimal separator
+            double value = parsedNumber.doubleValue();
+            System.out.println("Parsed number: " + value);
+        } catch (ParseException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

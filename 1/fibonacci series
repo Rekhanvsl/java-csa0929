@@ -1,0 +1,32 @@
+public class FibonacciSeries implements Runnable {
+
+    private int n;
+
+    public FibonacciSeries(int n) {
+        this.n = n;
+    }
+
+    @Override
+    public void run() {
+        int a = 0, b = 1;
+        System.out.print(a + " " + b + " ");
+        for (int i = 2; i < n; i++) {
+            int c = a + b;
+            System.out.print(c + " ");
+            a = b;
+            b = c;
+            try {
+                Thread.sleep(1000); // Pause for 1 second between printing each number
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 5; // Change this value to generate a different number of Fibonacci numbers
+        FibonacciSeries fibonacciSeries = new FibonacciSeries(n);
+        Thread thread = new Thread(fibonacciSeries);
+        thread.start();
+    }
+}
